@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link } from 'expo-router';
+import { register } from 'react-native/types_generated/Libraries/Renderer/shims/ReactNativeViewConfigRegistry';
 
 export default function LoginScreen() {
     const [email, setEmail] = useState('');
@@ -45,7 +46,7 @@ export default function LoginScreen() {
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             >
                 <View style={styles.content}>
-                    <Text style={styles.emoji}🔐</Text>
+                    <Text style={styles.emoji}>🔐</Text>
                     <Text style={styles.title}>Bem-vindo!</Text>
                     <Text style={styles.subtitle}>Faça login para continuar</Text>
 
@@ -107,4 +108,72 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         justifyContent: "center",
-    }
+        padding: 20,
+    },
+    emoji: {
+        fontSize: 60,
+        textAlign: "center",
+        marginBottom: 20,
+    },
+    title: {
+        fontSize: 32,
+        fontWeight: "bold",
+        color: "#333",
+        marginBottom: 8,
+        textAlign: "center",
+    },
+    subtitle: {
+        fontSize: 16,
+        color: '#666',
+        marginBottom: 40,
+        textAlign: "center",
+    },
+    input: {
+        backgroundColor: "#fff",
+        borderRadius: 8,
+        padding: 15,
+        marginBottom: 15,
+        fontSize: 16,
+        borderWidth: 1,
+        borderColor: "#ddd",
+    },
+    button: {
+        backgroundColor: "#007aff",
+        borderRadius: 8,
+        padding: 15,
+        alignItems: "center",
+        marginTop: 10,
+        minHeight: 50,
+        justifyContent: "center",
+    },
+    buttonDisabled: {
+        opacity: 0.6,
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+    },
+    registerContainer: {
+        flexDirection: "row",
+        justifyContent: "center",
+        marginTop: 20,
+        alignItems: "center",
+    },
+    registerText: {
+        color: "#666",
+        fontSize: 14,
+    },
+    registerLink: {
+        color: "#007aff",
+        fontSize: 14,
+        fontWeight: "bold",
+    },
+    infoText: {
+        marginTop: 30,
+        textAlign: "center",
+        color: "#888",
+        fontSize: 14,
+        paddingHorizontal: 20,
+    },
+});
